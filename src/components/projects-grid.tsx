@@ -3,6 +3,7 @@
 import { Github } from "lucide-react";
 import { motion } from "framer-motion";
 import { projects } from "@/lib/content";
+import { assetPath } from "@/lib/asset-path";
 
 export function ProjectsGrid() {
   return (
@@ -11,7 +12,7 @@ export function ProjectsGrid() {
         {projects.map((project, index) => (
           <motion.article key={project.slug} className="project-card" initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.08 }}>
             <div className={`project-visual ${project.image ? "project-visual-image" : ""}`}>
-              {project.image ? <img src={project.image} alt={`${project.title} preview`} /> : <><span>{String(index + 1).padStart(2, "0")}</span><i /></>}
+              {project.image ? <img src={assetPath(project.image)} alt={`${project.title} preview`} /> : <><span>{String(index + 1).padStart(2, "0")}</span><i /></>}
             </div>
             <div className="project-content">
               <p className="eyebrow">{project.eyebrow}</p>

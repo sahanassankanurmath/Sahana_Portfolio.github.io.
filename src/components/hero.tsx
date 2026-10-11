@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { siteConfig } from "@/lib/content";
+import { assetPath } from "@/lib/asset-path";
 
 export function Hero() {
   return (
@@ -22,7 +23,7 @@ export function Hero() {
           <div className="portrait-circle">
           {siteConfig.avatarUrl ? (
             <Image
-              src={siteConfig.avatarUrl}
+              src={assetPath(siteConfig.avatarUrl)}
               alt={`Portrait of ${siteConfig.name}`}
               fill
               priority
